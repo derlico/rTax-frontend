@@ -1,38 +1,115 @@
-.App {
+.btn{
+  width: 100px;
+  background-color: rgb(28, 208, 12);
+  color: white;
+  border-radius: 10px;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 200px;
+  margin-right: auto;
+  font-size: larger;
+  border: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.addBtn{
+  background-color: rgb(28, 208, 12);
+  color: white;
+  border-radius: 50px;
+  border: 0;
+  outline: none !important;
+}
+
+.menu_btn{
+  width: 100px;
+  background-color: rgb(13, 109, 199);
+  color: white;
+  border-radius: 5px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  font-size: larger;
+  border: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.menu_icon{
+  width: 100px;
+  background-color: rgb(199, 13, 13);
+  color: white;
+  border-radius: 200px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: 0px;
+  padding-left: 10px;
+  font-size: larger;
+  border: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.My_form {
+  background-color: rgb(238, 238, 221);
+  width: 360px;
+  min-height: 300px;
+  display: block;
+  padding: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+  border-radius: 15px;
+  font-size: large;
+}
+
+.menu_item {
+  display: inline;
+  
+}
+
+.text-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text-right {
+  text-align: right;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.min-vh-60 {
+  min-height: 60vh !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.w-65 {
+  width: 65% !important;
 }
 
-.App-link {
-  color: #61dafb;
+.h-40 {
+  height: 40% !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.vw-14 {
+  width: 12vw !important;
+  min-width: 12vw !important;
+}
+.vw-10 {
+  width: 10vw !important;
+  min-width: 10vw !important;
+}
+h1 {
+  background-color: rgb(17, 157, 38);
+  text-align: center;
+  color: aliceblue;
+}
+.my_input {
+  margin-left: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 30px;
+  width: 200px;
+  border-radius: 10px;
+  border-width: 1px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: large;
+}
+.design {
+  border-bottom: blue;
+  border: 20em;
 }
