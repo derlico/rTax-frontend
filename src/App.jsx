@@ -11,13 +11,12 @@ function App() {
     <Router>
       <TopNav />
       <Routes>
-        <Route path="/" />
-        <Route path="/pos" />
+        <Route path='/' element={<Home />}/>
+        <Route path="/pos" element={<Pos />} />
         <Route path="/reports" />
         <Route path="/admin" />
       </Routes>
-      </Router>
-    <Pos />
+    </Router>
       
     </>
   );
