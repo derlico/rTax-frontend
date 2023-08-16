@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import '../App.css';
+import '../../App.css';
 import PosSearch from './PosSearch';
 import { PlusCircle } from 'phosphor-react';
 import Checkout from '../modals/Checkout';
+import NewCustomer from '../modals/NewCustomer';
 
 export default function Pos(){
   //States
@@ -56,8 +57,13 @@ export default function Pos(){
 
    function handleCheckout(){
     setCheckoutState(!checkoutState);
-    console.log(checkoutState)
    }
+
+   const [newCust, setNewCust] = useState(false)
+
+   function handleNewCustomer(){
+       setNewCust(!newCust);
+      }
 
     return (
       <>
@@ -120,9 +126,13 @@ export default function Pos(){
                     
                     {/* <input type="text" className='form-control' name="" id="" placeholder='Customer Name' aria-label='total' aria-describedby='total' /> */}
                   </select>
-                  <button className='addBtn' /* onClick={(e) => addToCart(prod.id, prod.name, prod.price, prod.tax) } */>
+                  <button className='addBtn' onClick={handleNewCustomer}>
                   <b>Add New</b><PlusCircle size={30} weight="bold" />
                   </button>
+                  <NewCustomer
+                    open={newCust}
+                    onChanges={open=> handleNewCustomer(open)}
+                  />
                 </div>
                 <hr />
                 <div className='cart-area'>

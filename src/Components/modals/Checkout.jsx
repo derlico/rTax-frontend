@@ -5,13 +5,50 @@ const Checkout = ({open, onChange}) => {
   function handleClick(){
     onChange(!open)
   }
+  function handleSubmit(){
+    onChange(!open)
+  }
+
+  /* const handleSubmit = async (e) =>{
+    e.preventDefault();
+    
+    const newSale = {
+        name: e.target.name.value,
+        barcode: null,
+        cost: e.target.cost.value,
+        price: e.target.price.value,
+        tax: "0",
+    };
+
+        try {
+            const response = await fetch(process.env.REACT_APP_PRODUCTS, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newProduct),
+            });
+
+            if (response.ok){
+                console.log('Product Added Successfully');
+                e.target.reset();
+            } else {
+                console.error('Error adding product');
+            }
+        } catch (error) {
+            console.error('Error', error);
+            
+        }
+
+
+  }; */
 
     if (!open) return null;
   return (
     <>
     <div className="container col-lg-8 col-md-6 min-vh-75 mx-auto">
      <div className='overlay'>
-      <div className="modal-container">
+      <div className="checkout-container">
         <h2 className='my-1'><center>Checkout Page</center></h2>
         <hr />
         <div className="container d-grid gap-2 align-items-center text-sm">
@@ -50,7 +87,8 @@ const Checkout = ({open, onChange}) => {
                   </div>
 
                   <button
-                    className='btn btn-success w-50'>
+                    className='btn btn-success w-50'
+                      onClick={handleSubmit}>
                     Checkout
                   </button>
                   <button

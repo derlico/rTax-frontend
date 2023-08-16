@@ -1,7 +1,7 @@
 import './App.css';
-import TopNav from './nav/TopNav';
-import Pos from './pos/Pos';
-import Home from './home/Home';
+import TopNav from './Components/nav/TopNav';
+import Pos from './Components/pos/Pos'
+import Home from './Components/home/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import '../App.css';
+import '../../App.css';
 import { Pencil } from 'phosphor-react';
 import Product from './Product';
+import NewProduct from '../modals/NewProduct';
 
 export function Catalogue (){
 
@@ -18,15 +19,27 @@ export function Catalogue (){
     });
  }, []);
 
+ //Modal state
+
+    const [newProd, setNewProd] = useState(false)
+
+    function handleNewProduct(){
+        setNewProd(!newProd);
+       }
+       
     return (
       <>
         <div className="container">
           <Product />
           <hr />
 
-          <button className='btn btn-success mx-0 my-2 w-25 mx-2'><b>Add Product</b></button>
+          <button className='btn btn-success mx-0 my-2 w-25 mx-2' onClick={handleNewProduct}><b>Add Product</b></button>
+          <NewProduct 
+          open={newProd}
+          onChanges={open=> handleNewProduct(open)}
+          />
           <button className='btn btn-success mx-0 my-2 w-25 mx-2'><b>Add Tax</b></button>
-          <button className='btn btn-success mx-0 my-2 w-25'><b>Product Reports</b></button>
+          <button className='btn btn-success mx-0 my-2 w-25 mx-2'><b>Product Reports</b></button>
           
           <table className="table table-bordered">
             <thead>

@@ -1,4 +1,4 @@
-import '../App.css';
+import '../../App.css';
 import { Catalogue } from './Catalogue';
 
 function Home() {
