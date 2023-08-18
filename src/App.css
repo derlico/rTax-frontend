@@ -135,6 +135,12 @@
   overflow-y: auto;
 }
 
+.menu-area{
+  min-height: 60vh !important;
+  max-height: 60vh !important;
+  overflow-y: auto;
+}
+
 .w-65 {
   width: 65% !important;
 }

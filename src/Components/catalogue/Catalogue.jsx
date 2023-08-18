@@ -33,14 +33,29 @@ export function Catalogue (){
           <Product />
           <hr />
 
-          <button className='btn btn-success mx-0 my-2 w-25 mx-2' onClick={handleNewProduct}><b>Add Product</b></button>
-          <NewProduct 
-          open={newProd}
-          onChanges={open=> handleNewProduct(open)}
-          />
-          <button className='btn btn-success mx-0 my-2 w-25 mx-2'><b>Add Tax</b></button>
-          <button className='btn btn-success mx-0 my-2 w-25 mx-2'><b>Product Reports</b></button>
           
+
+          <hr />
+          
+          <div className='container-fluid row'>
+          <div className="col-lg-3 col-md-3">
+            <div className="card h-100 min-vh-60 container">
+              <div className='cart-area'>
+              <button className='btn btn-success w-75' onClick={handleNewProduct}><b>Add Product</b></button>
+                <NewProduct 
+                open={newProd}
+                onChanges={open=> handleNewProduct(open)}
+              />
+              <button className='btn btn-success w-75'><b>Product Barcodes</b></button>
+              <button className='btn btn-success w-75'><b>Add Taxes</b></button>
+              <button className='btn btn-success w-75'><b>Product Reports</b></button>
+              
+              </div>
+                
+            </div>
+          </div>
+
+          <div className="col-lg-9 col-md-6 min-vh-75 mx-auto">
           <table className="table table-bordered">
             <thead>
               <tr className='table-dark'>
@@ -70,6 +85,8 @@ export function Catalogue (){
                 
             </tbody>
           </table>
+          </div>
+          </div>
         </div>
       </>
     );

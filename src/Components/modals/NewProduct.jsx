@@ -15,7 +15,7 @@ function NewProduct({open, onChanges}) {
             barcode: null,
             cost: e.target.cost.value,
             price: e.target.price.value,
-            tax: "0",
+            tax: e.target.tax.value,
         };
 
             try {
@@ -105,7 +105,11 @@ function NewProduct({open, onChanges}) {
                     </div>
                     <div className=" my-2 mx-4">
                         <b>Taxes Applicable &nbsp;</b> 
-                        <input type="text" className='form mx-4 my-2' name="tax" placeholder='0.00' />
+                        <select className='form mx-4 my-2' id='tax'>
+                            <option value={"0"} selected>No Tax</option>
+                            <option value={"16"}>VAT(16%)</option>
+                      
+                        </select>
                     </div>
                     <button type='submit' className='btn btn-success w-50'>Add Product</button>
                     <button

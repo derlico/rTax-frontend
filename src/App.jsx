@@ -1,8 +1,9 @@
 import './App.css';
 import TopNav from './Components/nav/TopNav';
-import Pos from './Components/pos/Pos'
-import Home from './Components/home/Home';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Pos from './Components/pos/Pos';
+import BaseCatalogue from './Components/catalogue/BaseCatalogue';
+import HomeTrial from './Components/home/HomeTrial';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
     <Router>
       <TopNav />
       <Routes>
-        <Route path='/' element={<Home />}/>
+        <Route path='/' element={<HomeTrial />}/>
+        <Route path='/products' element={<BaseCatalogue />}/>
         <Route path="/pos" element={<Pos />} />
         <Route path="/reports" />
         <Route path="/admin" />
