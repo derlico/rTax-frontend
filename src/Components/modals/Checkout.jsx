@@ -1,18 +1,22 @@
 import React from 'react'
 
-const Checkout = ({open, onChange}) => {
+const Checkout = ({open, onChange, total, tax, cart, setCart} ) => {
+
+  const products = cart.map(item => item.id)
 
   function handleClick(){
     onChange(!open)
   }
 
+  //Handles Sales psoting
   const postSale = async (e) =>{
     e.preventDefault();
     
     const newSale = {
         customer: 1,
         sale_total: e.target.sale_total.value,
-        products: [1, 2],
+        products: [...products],
+        sale_tax: e.target.tax.value,
     };
 
         try {
@@ -28,11 +32,12 @@ const Checkout = ({open, onChange}) => {
                 window.alert('Sale Posted Successfully');
                 e.target.reset();
                 onChange(!open)
+                setCart([])
             } else {
                 console.error('Error Posting Sale');
             }
         } catch (error) {
-            console.error('Error', error);
+            console.error('System Error', error);
             
         }
 
@@ -88,16 +93,16 @@ const Checkout = ({open, onChange}) => {
                 
                 <div className="input-group">
                     <span className='input-group-text bg-danger text-light' id='total'><b>Grand Total</b></span>
-                    <input type="text" className='form-control text-right' name="sale_total" placeholder='0.00'/>
+                    <input type="text" readOnly className='form-control text-right' value={total} name="sale_total" placeholder='0.00'/>
                   </div>
-                  <div className="input-group my-2">
+                 {/*  <div className="input-group my-2">
                     <span className='input-group-text bg-success text-light' id='total'><b>Discounts</b></span>
                     <input type="text" className='form-control text-right' name="" placeholder='0.00'/>
-                  </div>
+                  </div> */}
                   
                   <div className="input-group my-2">
                     <span className='input-group-text bg-success text-light' id='total'><b>Tax Charged</b></span>
-                    <input type="text" readOnly className='form-control text-right' name="" id="tax" placeholder='0.00'/>
+                    <input type="text" readOnly className='form-control text-right' value={tax} name="" id="tax" placeholder='0.00'/>
                   </div>
                 </div>
                 <div className="col-6">

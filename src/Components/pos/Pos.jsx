@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../../App.css';
 import PosSearch from './PosSearch';
-import { PlusCircle } from 'phosphor-react';
+import { Backspace, PlusCircle } from 'phosphor-react';
 import Checkout from '../modals/Checkout';
 import NewCustomer from '../modals/NewCustomer';
 
@@ -9,9 +9,15 @@ export default function Pos(){
   //States
   const [prods, setProds] = useState([])
   const [clients, setClients] = useState([])
+  const [stocks, setStocks] = useState([])
   
-  //Rendering Products
+  //to update for dynamic render
+  let qty = 1;
+  
+  //Rendering Products, Stocks and Customers
    useEffect(() => {
+    
+    //Rendering Products
     fetch(process.env.REACT_APP_PRODUCTS,{
       method: "GET",
     })
@@ -19,10 +25,8 @@ export default function Pos(){
     .then(data =>{
       setProds(data);
     });
-  }, []);
 
-  //Rendering Customers
-  useEffect(() => {
+    //Rendering Customers
     fetch(process.env.REACT_APP_CUSTOMERS,{
       method: "GET",
     })
@@ -30,32 +34,114 @@ export default function Pos(){
     .then(data =>{
       setClients(data);
     });
+
+    //Rendering Stocks
+    fetch(process.env.REACT_APP_STOCKS,{
+      method: "GET",
+    })
+    .then(response => response.json())
+    .then(data =>{
+      setStocks(data);
+    });
+
   }, []);
+
+
+  function getStocks(id){
+    let stockVal = []
+    stockVal = stocks.filter((pq) => pq.productID === id);
+    const qty = stockVal.reduce((acc, current) => Number(acc) + Number(current.quantity), 0)
+    /* const qty = stockVal ? stockVal.quantity : 0; */
+
+    return qty
+  }
   
   
   
   //Cart
   const [cart, setCart] = useState([])
 
-  function addToCart(id, name, price, tax){
+  function addToCart(id, name, qty, price, tax){
     if(name){
-      setCart(prevCart => {
-        return [...prevCart, {id:id, name:name, price:price, tax:tax}]
-      })
+     const existingIndex = cart.findIndex(item => item.id === id);
+     const taxValue = +Number.parseFloat((tax/100) * price).toFixed(2)
+      
+        if(existingIndex !== -1){
+          const cartUpdate = [...cart]
+          cartUpdate[existingIndex].qty += 1;
+          cartUpdate[existingIndex].price = price * cartUpdate[existingIndex].qty
+          const tax_Val = cartUpdate[existingIndex].price * (tax/100)
+          cartUpdate[existingIndex].tax = +Number.parseFloat(tax_Val).toFixed(2)
+          setCart(cartUpdate);
+        }else {
+          setCart(prevCart => {
+              return [...new Set([...prevCart, {id:id, name:name, qty:qty, price:price, tax:taxValue}])]
+            //return [...prevCart, {id:id, name:name, price:price, tax:tax}]
+          })
+        }
+ 
     }
     
-     //proposed function call to update the local storage
+   }
+
+   function updateItemQty(id, newQty){
+     
+   const updatedItemCart = cart.map( item => {
+    if (item.id === id ){
+      const newPrice = item.price * newQty
+      const newTax = +Number.parseFloat(newPrice * (tax/100)).toFixed(2)
+      return { ...item, qty:newQty, price:newPrice, tax:newTax}
+    }
+    return item
+   });
+    setCart(updatedItemCart)
+
+   }
+
+   function updateItemPrice(id, newPrice){
+     
+    const updatedItemCart = cart.map( item => {
+     if (item.id === id ){
+       const newPrices = newPrice * item.qty
+       const newTax = +Number.parseFloat(newPrices * (tax/100)).toFixed(2)
+       return { ...item, price:newPrices, tax:newTax}
+
+     }
+     return item
+    });
+     setCart(updatedItemCart)
+ 
+    }
+
+   function removeFromCart(id){
+    const updatedCart = cart.filter(item => item.id !== id);
+    setCart(updatedCart);
+
+   }
+
+   //tax and total 
+    const [total, setTotal] = useState(0)
+    const [tax, setTax] = useState(0)
+
+   function handleValues(){
+    setTotal(getCartTotal())
+    setTax(getCartTax())
    }
 
    function getCartTotal(){
     let sum = cart.reduce((acc, current) => Number(acc) + Number(current.price), 0)
-    console.log(sum);
     return sum;
    }
    
+   function getCartTax(){
+    let totalTax = cart.reduce((acc, current) => Number(acc) + Number(current.tax), 0)
+    return totalTax;
+   }
+
    const [checkoutState, setCheckoutState] = useState(false);
 
    function handleCheckout(){
+    handleValues()
     setCheckoutState(!checkoutState);
    }
 
@@ -78,10 +164,13 @@ export default function Pos(){
           <PosSearch />
           <hr />
           <Checkout 
+          cart={cart} setCart={setCart}
+          total={total}
+          tax={tax}
           open={checkoutState}
           onChange={open=> handleCheckout(open)}
           />
-          <table className="table table-bordered modal-parent">
+          <table className="table table-bordered modal-parent scrollable-table">
             <thead>
               <tr className='table-dark'>
                 <th className="text-uppercase font-weight-bolder">Product Name</th>
@@ -95,10 +184,11 @@ export default function Pos(){
              {prods.map(prod =>   
               <tr key={prod.id}>
                 <td>{prod.name}</td>
-                <td className=''>0</td>
+                <td>{getStocks(prod.id)}</td>
+                
                 <td>{prod.price}</td>
                 <td className='d-flex justify-content-center mx-0'>
-                  <button className='addBtn' onClick={(e) => addToCart(prod.id, prod.name, prod.price, prod.tax) }>
+                  <button className='addBtn' onClick={(e) => addToCart(prod.id, prod.name, qty, prod.price, prod.tax) }>
                   <PlusCircle size={30} weight="bold" />
                   </button>
                 </td>
@@ -119,7 +209,6 @@ export default function Pos(){
                 <div className="input-group my-2">
                     <span className='input-group-text bg-secondary text-light' id='total'><b>Customer</b></span>
                     <select className='vw-14 w-65'>
-                    <option selected>Walk-in Customer</option>
                       {clients.map((client) =>
                         <option key={client.name}>{client.name}</option>
                       )}
@@ -135,8 +224,8 @@ export default function Pos(){
                   />
                 </div>
                 <hr />
-                <div className='cart-area'>
-                <table className='table table-bordered' id="my_cart">
+                <div className='scrollable-area'>
+                <table className='table table-bordered scrollable-table' id="my_cart">
                   <thead>
                   <tr className='table-primary text-light'>
                     <th className='w-50'>Item</th>
@@ -147,12 +236,15 @@ export default function Pos(){
                   </tr>
                   </thead>
                   <tbody>
-                  {cart.map(carts => 
-                    <tr key={carts.id}>
-                      <td>{carts.name}</td>
-                      <td>1</td>
-                      <td>{carts.price}</td>
-                      <td>{carts.tax}</td>
+                  {cart.map(item => 
+                    <tr key={item.id}>
+                      <td>{item.name}</td>
+                      <td contentEditable='true' onChange={(e) => updateItemQty(item.id, e.target.value)}>{item.qty}</td>
+                      <td contentEditable='true' onChange={(e) => updateItemPrice(item.id, e.target.value)}>{item.price}</td>
+                      <td>{item.tax}</td>
+                      <td> <button className='delBtn' onClick={(e) => removeFromCart(item.id) }>
+                  <Backspace size={24} weight="bold" />
+                  </button></td>
                     </tr>
               )}
                   </tbody>
@@ -162,7 +254,7 @@ export default function Pos(){
                 </div>
             </div>
 
-           
+           {/* CHECKOUT PAYMENT SECTION */}
             <div className="container d-grid gap-2 align-items-center text-sm">
               <div className="row grid my-2">               
                 <div className="col-6">
@@ -171,8 +263,8 @@ export default function Pos(){
                     <input type="text" readOnly className='form-control text-right' name="" id="my_total" placeholder='0.00' aria-label='total' value={getCartTotal()} />
                   </div>
                   <div className="input-group my-2">
-                    <span className='input-group-text bg-danger text-light' id='total'><b>Tax Charged</b></span>
-                    <input type="text" readOnly className='form-control text-right' name="" id="tax" placeholder='0.00'/>
+                    <span className='input-group-text bg-danger text-light' id='total'><b>Total Tax</b></span>
+                    <input type="text" readOnly className='form-control text-right' name="" id="tax" placeholder='0.00' value={getCartTax()}/>
                   </div>
                 </div>
                 <div className="col-6">

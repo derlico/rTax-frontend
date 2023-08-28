@@ -20,6 +20,14 @@
   outline: none !important;
 }
 
+.delBtn{
+  background-color: rgb(160, 9, 9);
+  color: white;
+  border-radius: 50px;
+  border: 0;
+  outline: none !important;
+}
+
 .modal-parent{
   z-index: -1;
 
@@ -129,17 +137,35 @@
 .min-vh-60 {
   min-height: 60vh !important;
 }
-.cart-area{
+
+/* SCROLLBALE ELEMENTS */
+.scrollable-area{
   min-height: 60vh !important;
   max-height: 60vh !important;
   overflow-y: auto;
 }
 
-.menu-area{
-  min-height: 60vh !important;
-  max-height: 60vh !important;
-  overflow-y: auto;
+.scrollable-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
+
+/* ScrollBar Formats */
+::-webkit-scrollbar {
+width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+background-color: #2bb3d2;
+border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+background-color: #f1f1f1; /* Background color of the scrollbar track */
+}
+
+
 
 .w-65 {
   width: 65% !important;
@@ -185,3 +211,4 @@ h1 {
   border-bottom: blue;
   border: 20em;
 }
+

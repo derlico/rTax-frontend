@@ -1,4 +1,4 @@
-import { ShoppingCart, WhatsappLogo, UserCircle, Notepad, SignOut, House } from "phosphor-react"
+import { ShoppingCart, WhatsappLogo, UserCircle, Notepad, SignOut, House, SelectionBackground } from "phosphor-react"
 import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
 
@@ -28,7 +28,7 @@ function TopNav() {
               </span>{" "}<SignOut color='red' size={22} weight="bold" />
               </NavDropdown.Item>
           </NavDropdown>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ backgroundColor:'white', color:'gold', marginRight:'20px'}} />
       <Navbar.Collapse id="basic-navbar-nav">
       
       <Nav className="me-auto">

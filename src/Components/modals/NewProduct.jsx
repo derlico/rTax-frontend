@@ -12,7 +12,7 @@ function NewProduct({open, onChanges}) {
         
         const newProduct = {
             name: e.target.name.value,
-            barcode: null,
+            barcode: e.target.barcode.value || null,
             cost: e.target.cost.value,
             price: e.target.price.value,
             tax: e.target.tax.value,
@@ -28,13 +28,15 @@ function NewProduct({open, onChanges}) {
                 });
 
                 if (response.ok){
-                    console.log('Product Added Successfully');
+                    window.alert('Product Added Successfully');
                     e.target.reset();
+                    handleClick();
+                    
                 } else {
-                    console.error('Error adding product');
+                    window.alert('Error adding product');
                 }
             } catch (error) {
-                console.error('Error', error);
+                window.alert('Error', error);
                 
             }
 

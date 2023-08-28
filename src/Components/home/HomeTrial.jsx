@@ -16,7 +16,7 @@ export default function HomeTrial() {
               <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Sales</p>
               <h5 class="font-weight-bolder mb-0">
                 <hidden>
-                    30
+                    Ksh 3000
                 </hidden>
                 <span class="text-success text-sm font-weight-bolder">+5%</span>
               </h5>
@@ -59,7 +59,7 @@ export default function HomeTrial() {
         <div class="row">
           <div class="col-8">
             <div class="numbers">
-              <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Expense</p>
+              <p class="text-sm mb-0 text-capitalize font-weight-bold">Monthly Expense</p>
               <h5 class="font-weight-bolder mb-0">
                 Ksh 2,300
               </h5>
@@ -80,7 +80,7 @@ export default function HomeTrial() {
         <div class="row">
           <div class="col-8">
             <div class="numbers">
-              <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Sales</p>
+              <p class="text-sm mb-0 text-capitalize font-weight-bold">Monthly Sales</p>
               <h5 class="font-weight-bolder mb-0">
                 Ksh 10,330
               </h5>
@@ -103,23 +103,7 @@ export default function HomeTrial() {
       <div class="card-header pb-0">
         <div class="row">
           <div class="col-lg-6 col-7">
-          <h6>Top Sales</h6>
-            <p class="text-sm">
-            <i class="fa fa-arrow-up text-success"></i>
-            <span class="font-weight-bold">4% more</span> in 2021
-            </p>
-          </div>
-          <div class="col-lg-6 col-5 my-auto text-end">
-            <div class="dropdown float-lg-end pe-4">
-              <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-ellipsis-v text-secondary"></i>
-              </a>
-              <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-              </ul>
-            </div>
+          <h6>Todays Sales</h6>
           </div>
         </div>
       </div>
@@ -128,10 +112,10 @@ export default function HomeTrial() {
           <table class="table align-items-center mb-0">
             <thead>
               <tr>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Products</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sales</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sale Ref</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Customer</th>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sales Value</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -144,209 +128,74 @@ export default function HomeTrial() {
                   </div>
                 </td>
                 <td>
-                  Bread 1KG
+                Ian Chirchir
                 </td>
                 <td class="align-middle text-center text-sm">
                   <span class="text-xs font-weight-bold"> $14,000 </span>
                 </td>
-                <td class="align-middle">
-                  <div class="progress-wrapper w-75 mx-auto">
-                    <div class="progress-info">
-                      <div class="progress-percentage">
-                        <span class="text-xs font-weight-bold">60%</span>
-                      </div>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                <td class="align-middle text-center">
+                  <div>
+                    <span class="text-xs font-weight-bold">60%</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div class="d-flex px-2 py-1">
-                    <div>
-                      <img src="{% static 'img/small-logos/logo-atlassian.svg' %}" class="avatar avatar-sm me-3" alt="atlassian" />
-                    </div>
                     <div class="d-flex flex-column justify-content-center">
-                      <h6 class="mb-0 text-sm">Add Progress Track</h6>
+                      <h6 class="mb-0 text-sm">Sale 2</h6>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <div class="avatar-group mt-2">
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                      <img src="{% static 'img/team-2.jpg' %}" alt="team5" />
-                    </a>
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                      <img src="{% static 'img/team-4.jpg' %}" alt="team6" />
-                    </a>
-                  </div>
+                  Ian Chirchir
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold"> $3,000 </span>
+                  <span class="text-xs font-weight-bold"> $14,000 </span>
                 </td>
-                <td class="align-middle">
-                  <div class="progress-wrapper w-75 mx-auto">
-                    <div class="progress-info">
-                      <div class="progress-percentage">
-                        <span class="text-xs font-weight-bold">10%</span>
-                      </div>
+                <td class="align-middle text-center">
+                  <div>
+                    <span class="text-xs font-weight-bold">60%</span>
+                  </div>
+                </td >
+              </tr>
+              <tr>
+                <td>
+                  <div class="d-flex px-2 py-1">
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="mb-0 text-sm">Sale 3</h6>
                     </div>
-                    <div class="progress">
-                      <div class="progress-bar bg-gradient-info w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                  </div>
+                </td>
+                <td>
+                Ian Chirchir
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold"> $14,000 </span>
+                </td>
+                <td class="align-middle text-center">
+                  <div>
+                    <span class="text-xs font-weight-bold">60%</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div class="d-flex px-2 py-1">
-                    <div>
-                      <img src="{% static 'img/small-logos/logo-slack.svg' %}" class="avatar avatar-sm me-3" alt="team7" />
-                    </div>
                     <div class="d-flex flex-column justify-content-center">
-                      <h6 class="mb-0 text-sm">Fix Platform Errors</h6>
+                      <h6 class="mb-0 text-sm">Sale 4</h6>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <div class="avatar-group mt-2">
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                      <img src="{% static 'img/team-3.jpg' %}" alt="team8" />
-                    </a>
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                      <img src="{% static 'img/team-1.jpg' %}" alt="team9" />
-                    </a>
-                  </div>
+                Ian Chirchir
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold"> Not set </span>
+                  <span class="text-xs font-weight-bold"> $14,000 </span>
                 </td>
-                <td class="align-middle">
-                  <div class="progress-wrapper w-75 mx-auto">
-                    <div class="progress-info">
-                      <div class="progress-percentage">
-                        <span class="text-xs font-weight-bold">100%</span>
-                      </div>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex px-2 py-1">
-                    <div>
-                      <img src="{% static 'img/small-logos/logo-spotify.svg' %}" class="avatar avatar-sm me-3" alt="spotify" />
-                    </div>
-                    <div class="d-flex flex-column justify-content-center">
-                      <h6 class="mb-0 text-sm">Launch our Mobile App</h6>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="avatar-group mt-2">
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                      <img src="{% static 'img/team-4.jpg' %}" alt="user1" />
-                    </a>
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                      <img src="{% static 'img/team-3.jpg' %}" alt="user2" />
-                    </a>
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                      <img src="{% static 'img/team-4.jpg' %}" alt="user3" />
-                    </a>
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                      <img src="{% static 'img/team-1.jpg' %}" alt="user4" />
-                    </a>
-                  </div>
-                </td>
-                <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold"> $20,500 </span>
-                </td>
-                <td class="align-middle">
-                  <div class="progress-wrapper w-75 mx-auto">
-                    <div class="progress-info">
-                      <div class="progress-percentage">
-                        <span class="text-xs font-weight-bold">100%</span>
-                      </div>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex px-2 py-1">
-                    <div>
-                      <img src="{% static 'img/small-logos/logo-jira.svg' %}" class="avatar avatar-sm me-3" alt="jira" />
-                    </div>
-                    <div class="d-flex flex-column justify-content-center">
-                      <h6 class="mb-0 text-sm">Add the New Pricing Page</h6>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="avatar-group mt-2">
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                      <img src="{% static 'img/team-4.jpg' %}" alt="user5" />
-                    </a>
-                  </div>
-                </td>
-                <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold"> $500 </span>
-                </td>
-                <td class="align-middle">
-                  <div class="progress-wrapper w-75 mx-auto">
-                    <div class="progress-info">
-                      <div class="progress-percentage">
-                        <span class="text-xs font-weight-bold">25%</span>
-                      </div>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar bg-gradient-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="25"></div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex px-2 py-1">
-                    <div>
-                      <img src="{% static 'img/small-logos/logo-invision.svg' %}" class="avatar avatar-sm me-3" alt="invision" />
-                    </div>
-                    <div class="d-flex flex-column justify-content-center">
-                      <h6 class="mb-0 text-sm">Redesign New Online Shop</h6>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="avatar-group mt-2">
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                      <img src="{% static 'img/team-1.jpg' %}" alt="user6" />
-                    </a>
-                    <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                      <img src="{% static 'img/team-4.jpg' %}" alt="user7" />
-                    </a>
-                  </div>
-                </td>
-                <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold"> $2,000 </span>
-                </td>
-                <td class="align-middle">
-                  <div class="progress-wrapper w-75 mx-auto">
-                    <div class="progress-info">
-                      <div class="progress-percentage">
-                        <span class="text-xs font-weight-bold">40%</span>
-                      </div>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar bg-gradient-info w-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="40"></div>
-                    </div>
+                <td class="align-middle text-center">
+                  <div>
+                    <span class="text-xs font-weight-bold">60%</span>
                   </div>
                 </td>
               </tr>
