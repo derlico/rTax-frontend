@@ -13,7 +13,7 @@ REACT_APP_SALES = http://127.0.0.1:8000/api/sales/
 
 REACT_APP_PAYMENTS = http://127.0.0.1:8000/api/payments/
 
-## Run Scripts
+# Setup Scripts
 Make sure to install all the requisites of the project including Node
 
 Once installed in the project directory, you need to run:
