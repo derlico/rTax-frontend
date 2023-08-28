@@ -4,9 +4,13 @@ Configure your backend to run on a specific IP and populate the .ENV files appro
 
 ### .env example:
 REACT_APP_PRODUCTS = http://127.0.0.1:8000/api/products/
+
 REACT_APP_STOCKS = http://127.0.0.1:8000/api/stocks/
+
 REACT_APP_CUSTOMERS = http://127.0.0.1:8000/api/customers/
+
 REACT_APP_SALES = http://127.0.0.1:8000/api/sales/
+
 REACT_APP_PAYMENTS = http://127.0.0.1:8000/api/payments/
 
 ## Run Scripts
