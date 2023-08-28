@@ -26,11 +26,11 @@ installs all the dependencies on the package.json
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 # System Structure
 
 POS: - Customer, Checkout, Stocks
+
 Catalogue: - Product List, Price List, Profit Margin Report
+
 Reports: - Sales Report, Tax Reports
